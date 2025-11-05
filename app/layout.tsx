@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title: "Escribania Barbieri - Servicios Notariales Profesionales",
   description:
     "Servicios notariales de alta calidad en Chivilcoy, Buenos Aires. Escribania Barbieri ofrece escrituras, testamentos, contratos y asesoría legal profesional.",
-    generator: 'v0.app'
+  generator: "v0.app",
 }
 
 export default function RootLayout({
@@ -15,7 +15,10 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
+    <html lang="es">
+      <head>
+        <link rel="icon" type="image/png" href="/imgs/favicon.png" />
+      </head>
       <body>{children}</body>
     </html>
   )

@@ -1,6 +1,7 @@
 import Image from "next/image"
 import Link from "next/link"
-import { FileText, Home, Users, MessageSquare, Clock, Shield, ChevronRight, Phone, Mail, MapPin } from "lucide-react"
+import { FileText, Home, Users,Album , MessageSquare, Clock, Shield, ChevronRight, Phone, Mail, MapPin, LibraryBig, ShieldCheck, Building2 } from "lucide-react"
+import ComentarioForm from "@/components/comentario-form"
 
 export const metadata = {
   title: "Escribania Barbieri - Servicios Notariales Profesionales",
@@ -43,7 +44,7 @@ export default function LandingPage() {
             <div className="grid gap-6 lg:grid-cols-2 lg:gap-12 items-center">
               <div className="space-y-4">
                 <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-[rgb(28,74,62)]">
-                  Servicios Notariales Profesionales y Confiables
+                  Servicios Notariales
                 </h1>
                 <p className="max-w-[600px] text-gray-600 text-lg md:text-xl">
                   En Escribania Barbieri ofrecemos servicios notariales de alta calidad con la seguridad jurídica que usted necesita.
@@ -78,14 +79,18 @@ export default function LandingPage() {
             </div>
             <div className="mx-auto grid max-w-5xl items-center gap-6 py-12 lg:grid-cols-3">
               {[
-                { icon: <Home className="h-10 w-10 text-[rgb(28,74,62)]" />, title: "Escrituras de Propiedad", description: "Preparación y certificación de escrituras para transacciones inmobiliarias." },
+                { icon: <Home className="h-10 w-10 text-[rgb(28,74,62)]" />, title: "Escrituraciones", description: "Preparación y certificación de escrituras para transacciones inmobiliarias." },
                 { icon: <Users className="h-10 w-10 text-[rgb(28,74,62)]" />, title: "Testamentos y Sucesiones", description: "Asesoramiento y tramitación de testamentos y procesos sucesorios." },
                 { icon: <FileText className="h-10 w-10 text-[rgb(28,74,62)]" />, title: "Contratos y Acuerdos", description: "Redacción y certificación de contratos legales y acuerdos comerciales." },
-                { icon: <Shield className="h-10 w-10 text-[rgb(28,74,62)]" />, title: "Poderes Legales", description: "Elaboración de poderes generales y especiales para representación legal." },
+                { icon: <Shield className="h-10 w-10 text-[rgb(28,74,62)]" />, title: "Poderes", description: "Elaboración de poderes generales y especiales para representación legal." },
                 { icon: <MessageSquare className="h-10 w-10 text-[rgb(28,74,62)]" />, title: "Asesoría Legal", description: "Consultoría jurídica personalizada para personas y empresas." },
                 { icon: <Clock className="h-10 w-10 text-[rgb(28,74,62)]" />, title: "Certificaciones", description: "Certificación de documentos, firmas y otros trámites notariales." },
-              ].map((service, i) => (
-                <div key={i} className="flex flex-col items-center space-y-2 rounded-lg border p-6 shadow-sm hover:shadow-md transition-shadow">
+                { icon: <Album className="h-10 w-10 text-[rgb(28,74,62)]" />, title: "Actas notariales", description: "Constataciones, rifas, protocolizaciones." },
+                { icon: <ShieldCheck className="h-10 w-10 text-[rgb(28,74,62)]" />, title: "Certificaciones digitales", description: "Firmas, legalizaciones, apostillas." },
+                { icon: <Building2 className="h-10 w-10 text-[rgb(28,74,62)]" />, title: "Constitución de sociedades", description: "Sociedades anonimas, S.R.L." },
+                { icon: <Home className="h-10 w-10 text-[rgb(28,74,62)]" />, title: "Constitución de bienes de familia", description: "Afectación a vivienda familia, para proteger tus bienes inmuebles." }
+              ].map((service, i, arr) => (
+                <div key={i} className={`flex flex-col items-center space-y-2 rounded-lg border p-6 shadow-sm hover:shadow-md transition-shadow ${i === arr.length - 1 ? "lg:col-start-2" : ""}`}>
                   {service.icon}
                   <h3 className="text-xl font-bold text-[rgb(28,74,62)]">{service.title}</h3>
                   <p className="text-gray-500">{service.description}</p>
@@ -151,24 +156,28 @@ export default function LandingPage() {
                   Estamos a su disposición para resolver todas sus consultas y necesidades notariales.
                 </p>
                 <div className="space-y-4">
-                  <div className="flex items-center gap-2"><Phone className="h-5 w-5 text-[rgb(28,74,62)]" /><span className="text-gray-600">+54 2346 559784</span></div>
+                  <div className="flex items-center gap-2"><Phone className="h-5 w-5 text-[rgb(28,74,62)]" /><span className="text-gray-600">+54 2346 551341</span></div>
                   <div className="flex items-center gap-2"><Mail className="h-5 w-5 text-[rgb(28,74,62)]" /><span className="text-gray-600">barbieriescribania@gmail.com</span></div>
                   <div className="flex items-center gap-2"><MapPin className="h-5 w-5 text-[rgb(28,74,62)]" /><span className="text-gray-600">Bolivar 432, Chivilcoy, Buenos Aires</span></div>
                   <div className="flex items-center gap-2"><Clock className="h-5 w-5 text-[rgb(28,74,62)]" /><span className="text-gray-600">Lunes a Viernes: 9:00 - 13:00 / 16:00 - 18:00</span></div>
                 </div>
               </div>
-              <div className="rounded-lg border shadow-sm overflow-hidden h-[450px]">
-                <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3281.1776178277404!2d-60.02299492342548!3d-34.89583677339133!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bea53c2add6e8d%3A0x8d5c1421eba53f71!2sBolivar%20432%2C%20Chivilcoy!5e0!3m2!1ses!2sar!4v1716242796000!5m2!1ses!2sar"
-                  width="100%"
-                  height="100%"
-                  style={{ border: 0 }}
-                  loading="lazy"
-                  title="Ubicación de Escribania Barbieri"
-                ></iframe>
-              </div>
+              <ComentarioForm />
             </div>
           </div>
+        </section>
+
+        {/* Map Section - ancho completo */}
+        <section className="w-full">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3281.1776178277404!2d-60.02299492342548!3d-34.89583677339133!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bea53c2add6e8d%3A0x8d5c1421eba53f71!2sBolivar%20432%2C%20Chivilcoy!5e0!3m2!1ses!2sar!4v1716242796000!5m2!1ses!2sar"
+            width="100%"
+            height="450"
+            style={{ border: 0 }}
+            loading="lazy"
+            title="Ubicación de Escribania Barbieri"
+            className="block w-full"
+          ></iframe>
         </section>
       </main>
 
@@ -195,7 +204,7 @@ export default function LandingPage() {
 
 
       {/* WhatsApp Floating Button */}
-      <a href="https://wa.me/5492346559784" target="_blank" rel="noopener noreferrer" className="fixed bottom-6 right-6 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] shadow-lg transition-all duration-300 hover:scale-110 hover:shadow-xl" aria-label="Chat on WhatsApp" >
+      <a href="https://wa.me/5492346551341" target="_blank" rel="noopener noreferrer" className="fixed bottom-6 right-6 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] shadow-lg transition-all duration-300 hover:scale-110 hover:shadow-xl" aria-label="Chat on WhatsApp" >
         {/* Option 1: Using Image component (if you have a custom logo) */} {/* <Image src="/imgs/whatsapp-logo.png" alt="WhatsApp" width={40} height={40} /> */} 
         {/* Option 2: Using inline SVG (more reliable) */}
         <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="white">
